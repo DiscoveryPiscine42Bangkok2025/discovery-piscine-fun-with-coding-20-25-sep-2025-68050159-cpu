@@ -1,1 +1,2 @@
-(Get-ChildItem -Name | Where-Object { -not ($_.StartsWith(".")) }).Count
+#!/bin/sh
+ls -1A | wc -l
