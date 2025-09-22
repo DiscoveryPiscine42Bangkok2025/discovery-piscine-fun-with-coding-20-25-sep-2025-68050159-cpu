@@ -1,0 +1,86 @@
+/* === การตั้งค่าพื้นฐานและสไตล์มินิมอล === */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* ใช้ฟอนต์ของระบบปฏิบัติการเพื่อให้ดูทันสมัยและสะอาดตา */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f4f7; /* เปลี่ยนพื้นหลังเป็นสีเทาอ่อน */
+    color: #333; /* เปลี่ยนสีตัวอักษรเป็นสีเทาเข้มเพื่อลดความกระด้าง */
+}
+
+table {
+    width: 100vw;
+    height: 100vh;
+    border-collapse: collapse;
+    /* --- ลบกรอบหนาๆ ออก และใช้เงาแทนเพื่อให้ดูนุ่มนวล --- */
+    background-color: #ffffff; /* ทำให้ตารางมีพื้นหลังสีขาว */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 18px 15px; /* เพิ่มระยะห่างภายในเซลล์ */
+    text-align: center; 
+    width: 20%;
+    /* --- เปลี่ยนจากการใช้เส้นขอบทุกด้าน มาใช้แค่เส้นคั่นแนวนอน --- */
+    border: none;
+    border-bottom: 1px solid #e9e9e9; /* ใช้เส้นคั่นบางๆ สีเทาอ่อน */
+}
+
+/* ทำให้แถวสุดท้ายไม่มีเส้นคั่น */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+thead th {
+    background-color: transparent; /* เอาสีพื้นหลังออก */
+    color: #555;
+    font-weight: 600; /* ทำให้ตัวหนาขึ้นเล็กน้อย */
+    text-transform: uppercase; /* ทำให้เป็นตัวพิมพ์ใหญ่ทั้งหมด */
+    letter-spacing: 0.5px; /* เพิ่มระยะห่างระหว่างตัวอักษร */
+    border-bottom: 2px solid #ddd; /* ใช้เส้นขอบล่างที่หนาขึ้นเพื่อแยกส่วนหัว */
+}
+
+
+/* === ส่วนที่ทำให้ตาราง Responsive เมื่อจอเล็ก === */
+@media screen and (max-width: 600px) {
+    
+    thead {
+        display: none;
+    }
+
+    tr, td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    tr {
+        margin-bottom: 20px;
+        /* --- เปลี่ยนจากกรอบ มาใช้เงาเพื่อให้ดูเหมือนการ์ดที่ลอยอยู่ --- */
+        border: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+    }
+    
+    td {
+        border-bottom: 1px solid #e9e9e9; /* ใช้เส้นคั่นบางๆ เหมือนเดิม */
+        padding: 15px;
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+
+    td::before {
+        content: attr(data-label);
+        display: block;
+        font-weight: 600; /* ทำให้หัวข้อหนาขึ้น */
+        text-align: center;
+        margin-bottom: 8px;
+        color: #555;
+        text-transform: uppercase;
+        font-size: 0.9em;
+    }
+}
