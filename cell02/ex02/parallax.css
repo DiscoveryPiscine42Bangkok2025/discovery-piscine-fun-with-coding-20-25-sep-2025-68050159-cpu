@@ -1,0 +1,67 @@
+/* Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", "Inter", Arial, sans-serif;
+  height: 100%;
+  color: #222;
+}
+
+/* Parallax sections */
+.parallax {
+  position: relative;
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg1 {
+  background-image: url("https://plus.unsplash.com/premium_photo-1661964149725-fbf14eabd38c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2FudG9yaW5pfGVufDB8fDB8fHww");
+}
+
+.bg2 {
+  background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/8621.jpeg");
+}
+
+/* Centered caption text */
+.caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: rgba(0,0,0,0.35);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+/* Middle block */
+.section {
+  height: 60vh;
+  background: #000000;
+  color: #faf9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
