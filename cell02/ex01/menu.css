@@ -1,0 +1,152 @@
+/* --- Google Font & Basic Setup --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --bg-color: #f4f4f7;
+    --text-color: #1a1a1a;
+    --primary-color: #ff00b3;
+    --border-color: #e0e0e0;
+    --card-bg: #ffffff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.wrap {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+/* --- Brand & Logo --- */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.brand .logo {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+}
+
+.brand h1 {
+    font-size: 1.5rem;
+    margin: 0 0 4px 0;
+}
+
+.brand p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+/* --- Menu Styling --- */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden; /* Important for border-radius */
+}
+
+.item {
+    position: relative; /* Crucial for positioning the dropdown */
+    outline: none; /* Removes default focus outline */
+}
+
+.item .label {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.item .label:hover {
+    background-color: #f9f9f9;
+}
+
+.item .label span:first-of-type {
+    margin-left: 12px;
+}
+
+.item .label .chev {
+    margin-left: auto;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.slice {
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+/* --- Dropdown Functionality & Styling --- */
+.dropdown {
+    display: none; /* Hide dropdown by default */
+    background-color: #fafafa;
+    padding: 10px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- THE MAGIC: Show dropdown on hover/focus --- */
+.item:hover > .dropdown,
+.item:focus-within > .dropdown {
+    display: block;
+}
+
+.item:hover .chev,
+.item:focus-within .chev {
+    transform: rotate(180deg);
+}
+
+.dropdown a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown a p {
+    font-size: 0.85rem;
+    color: #777;
+    margin: 4px 0 0 0;
+}
+
+.dropdown .line {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.dropdown .line small {
+    color: var(--primary-color);
+    font-weight: 700;
+}

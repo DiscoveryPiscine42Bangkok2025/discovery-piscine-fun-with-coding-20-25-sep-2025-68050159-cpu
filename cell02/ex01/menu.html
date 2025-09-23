@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minimal Drop-down Menu</title>
+    <link rel="stylesheet" href="menu.css" />
+</head>
+<body>
+    <main class="wrap" role="main">
+        <div class="brand">
+            <div class="logo" aria-hidden="true">FL</div>
+            <div>
+                <h1>MENU</h1>
+                <p>Forlor Kitchen</p>
+            </div>
+        </div>
+
+        <nav aria-label="Main menu">
+            <ul class="menu">
+                <li class="item" tabindex="0">
+                    <a href="#" class="label">🥪 <span>Sandwich</span> <span class="chev">▾</span></a>
+                    <div class="dropdown" role="menu">
+                        <a href="#" role="menuitem">
+                            <div class="line"><span>Classic Ham & Cheese</span><small>€4.50</small></div>
+                            <p>Smoked ham · Emmental · Buttered baguette</p>
+                        </a>
+                        <a href="#" role="menuitem">
+                            <div class="line"><span>Light Vegetarian</span><small>€4.00</small></div>
+                            <p>Seasonal greens · Herbed cream cheese</p>
+                        </a>
+                        <a href="#" role="menuitem">
+                            <div class="line"><span>Chef's Special</span><small>€5.20</small></div>
+                            <p>Ham · Gruyère · Dijon aioli · Caramelized onion</p>
+                        </a>
+                    </div>
+                </li>
+
+                <div class="slice" aria-hidden="true"></div>
+
+                <li class="item" tabindex="0">
+                    <a href="#" class="label">🍷 <span>Drinks</span> <span class="chev">▾</span></a>
+                    <div class="dropdown" role="menu">
+                        <a href="#" role="menuitem">
+                            <div class="line"><span>Mineral Water</span></div>
+                            <p>Still / Sparkling</p>
+                        </a>
+                        <a href="#" role="menuitem">
+                            <div class="line"><span>Espresso</span></div>
+                            <p>Short, strong and neat</p>
+                        </a>
+                        <a href="#" role="menuitem">
+                            <div class="line"><span>Fresh Juice</span></div>
+                            <p>Orange or Apple</p>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </main>
+</body>
+</html>
