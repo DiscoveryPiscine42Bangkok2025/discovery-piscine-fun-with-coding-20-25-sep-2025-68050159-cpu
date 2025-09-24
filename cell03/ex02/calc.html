@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 02: It's over 9000</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .calculator {
+            padding: 20px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        input, select, button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input {
+            width: 80px;
+        }
+        button {
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <input type="text" id="left-operand">
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input type="text" id="right-operand">
+        <button id="calculate-btn">Try me!</button>
+    </div>
+
+    <script>
+        // --- ส่วนของการแจ้งเตือนทุก 30 วินาที ---
+        setInterval(function() {
+            alert("Please, use me...");
+        }, 30000);
+
+        // --- ส่วนของตรรกะเครื่องคิดเลข ---
+        const leftOperandEl = document.getElementById('left-operand');
+        const rightOperandEl = document.getElementById('right-operand');
+        const operatorEl = document.getElementById('operator');
+        const calculateBtn = document.getElementById('calculate-btn');
+
+        calculateBtn.addEventListener('click', function() {
+            // ดึงค่าและแปลงเป็นตัวเลขจำนวนเต็ม
+            const leftNum = parseInt(leftOperandEl.value, 10);
+            const rightNum = parseInt(rightOperandEl.value, 10);
+            const operator = operatorEl.value;
+
+            // 1. ตรวจสอบว่า Input เป็นจำนวนเต็มบวกหรือไม่
+            // isNaN(num) จะเป็น true ถ้าค่าที่แปลงแล้วไม่ใช่ตัวเลข
+            // num < 0 จะเป็น true ถ้าเป็นเลขติดลบ
+            if (isNaN(leftNum) || isNaN(rightNum) || leftNum < 0 || rightNum < 0) {
+                alert("Error :(");
+                return; // หยุดการทำงาน
+            }
+
+            // 2. ตรวจสอบการหารด้วยศูนย์
+            if ((operator === '/' || operator === '%') && rightNum === 0) {
+                const message = "It's over 9000!";
+                alert(message);
+                console.log(message);
+                return; // หยุดการทำงาน
+            }
+
+            // 3. ทำการคำนวณ
+            let result;
+            switch (operator) {
+                case '+':
+                    result = leftNum + rightNum;
+                    break;
+                case '-':
+                    result = leftNum - rightNum;
+                    break;
+                case '*':
+                    result = leftNum * rightNum;
+                    break;
+                case '/':
+                    result = leftNum / rightNum;
+                    break;
+                case '%':
+                    result = leftNum % rightNum;
+                    break;
+            }
+
+            // 4. แสดงผลลัพธ์
+            alert("Result: " + result);
+            console.log("Result:", result);
+        });
+    </script>
+
+</body>
+</html>
