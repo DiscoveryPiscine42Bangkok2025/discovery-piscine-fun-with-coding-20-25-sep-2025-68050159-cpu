@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Explode this Balloon</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f5f5f5;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Balloon style */
+    #balloon {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="balloon"></div>
+
+  <script>
+    const balloon = document.getElementById("balloon");
+
+    let size = 200;
+    let colors = ["red", "green", "blue"];
+    let colorIndex = 0;
+
+    // ฟังก์ชันอัพเดตบอลลูน
+    function updateBalloon() {
+      balloon.style.width = size + "px";
+      balloon.style.height = size + "px";
+      balloon.style.backgroundColor = colors[colorIndex];
+    }
+
+    // เมื่อคลิก -> ขยาย + เปลี่ยนสีไปข้างหน้า
+    balloon.addEventListener("click", () => {
+      size += 10;
+      colorIndex = (colorIndex + 1) % colors.length;
+
+      if (size > 420) {
+        size = 200;         // reset size
+        colorIndex = 0;     // reset color (red)
+      }
+      updateBalloon();
+    });
+
+    // เมื่อเอาเมาส์ออก -> หด + เปลี่ยนสีถอยหลัง
+    balloon.addEventListener("mouseleave", () => {
+      if (size > 200) {
+        size -= 5;
+      }
+      colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+      updateBalloon();
+    });
+
+    // อัพเดตตอนเริ่มต้น
+    updateBalloon();
+  </script>
+
+</body>
+</html>
